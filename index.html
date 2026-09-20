@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Disability Assistance Registration</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f3ff;
+  color: #211a3a;
+  line-height: 1.6;
+}
+
+/* TOP BANNER */
+.top-banner {
+  background: linear-gradient(135deg, #4c1d95, #7c3aed);
+  color: #fff;
+  text-align: center;
+  padding: 28px 18px;
+  border-bottom: 4px solid #f59e0b;
+}
+
+.top-banner strong {
+  display: block;
+  font-size: clamp(26px, 6vw, 40px);
+  font-weight: 900;
+}
+
+.top-banner span {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #ede9fe;
+}
+
+/* HEADER */
+header {
+  background: #2e1065;
+  color: #fff;
+  padding: 20px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: #fbbf24;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,.35);
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2e1065, #5b21b6);
+  color: white;
+  text-align: center;
+  padding: 60px 20px 105px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: auto;
+  color: #ede9fe;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 920px;
+  margin: -50px auto 60px;
+  padding: 0 18px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 38px;
+  box-shadow: 0 20px 55px rgba(46,16,101,.14);
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.description {
+  color: #6b6480;
+  margin-bottom: 26px;
+}
+
+/* NOTICE */
+.notice {
+  padding: 18px;
+  border-radius: 11px;
+  background: #f3e8ff;
+  border-left: 5px solid #7c3aed;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.important {
+  background: #fff7ed;
+  border-left-color: #f59e0b;
+}
+
+/* FORM */
+.section-title {
+  font-size: 21px;
+  margin: 34px 0 18px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #e8e2f3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d9d1e8;
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  color: #211a3a;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,.12);
+}
+
+textarea {
+  min-height: 115px;
+}
+
+/* BUTTONS */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 15px 24px;
+  background: #7c3aed;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6d28d9;
+}
+
+.secondary {
+  background: #eeeaf5;
+  color: #211a3a;
+}
+
+.secondary:hover {
+  background: #e4deee;
+}
+
+/* SUCCESS */
+.success {
+  display: none;
+  margin-top: 28px;
+  padding: 28px;
+  text-align: center;
+  border-radius: 15px;
+  background: #f3e8ff;
+  border: 1px solid #d8b4fe;
+}
+
+.success h2 {
+  color: #6d28d9;
+}
+
+.continue {
+  margin-top: 18px;
+  background: #4c1d95;
+}
+
+/* REVIEW SECTION */
+#reviewSection {
+  display: none;
+}
+
+.review-card {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(46,16,101,.15);
+}
+
+.review-header {
+  background: linear-gradient(135deg, #4c1d95, #7c3aed);
+  color: white;
+  padding: 40px 32px;
+  border-bottom: 5px solid #f59e0b;
+}
+
+.review-header h1 {
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.2;
+}
+
+.review-header p {
+  margin-top: 10px;
+  color: #ede9fe;
+}
+
+.review-content {
+  padding: 32px;
+}
+
+/* INFORMATION BOX */
+.info-box {
+  margin: 25px 0;
+  padding: 26px;
+  border-radius: 16px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+}
+
+.info-box h2 {
+  color: #5b21b6;
+  font-size: 22px;
+}
+
+.info-box p {
+  margin-top: 10px;
+  color: #625a75;
+}
+
+/* PAYMENT WARNING */
+.payment-warning {
+  margin-top: 25px;
+  padding: 22px;
+  border-radius: 13px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #7c2d12;
+  font-size: 14px;
+}
+
+.back {
+  margin-top: 22px;
+  background: #eeeaf5;
+  color: #211a3a;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 32px 20px;
+  color: #746d84;
+  font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  header {
+    padding: 17px 5%;
+  }
+
+  .hero {
+    padding: 45px 18px 80px;
+  }
+
+  .card {
+    padding: 24px 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .review-content {
+    padding: 23px;
+  }
+
+  .review-header {
+    padding: 30px 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  <strong>Disability Assistance Registration</strong>
+
+  <span>
+    Eligibility and assistance amounts are subject to
+    official verification and approval.
+  </span>
+</div>
+
+<!-- HEADER -->
+<header>
+
+  <div class="logo">
+    Care<span>Assist</span>
+  </div>
+
+  <a href="#application">
+    Apply Now
+  </a>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <h1>
+    Disability Assistance Registration
+  </h1>
+
+  <p>
+    Complete the registration information accurately.
+    Submission does not guarantee eligibility or approval.
+  </p>
+
+</section>
+
+<main class="container">
+
+<!-- REGISTRATION -->
+<section id="application" class="card">
+
+  <h2>
+    Applicant Information
+  </h2>
+
+  <p class="description">
+    Please provide accurate information for registration
+    and review.
+  </p>
+
+  <div class="notice important">
+
+    <strong>Important:</strong>
+    
+
+  </div>
+
+  <!-- PERSONAL DETAILS -->
+  <h3 class="section-title">
+    Personal Details
+  </h3>
+
+  <div class="grid">
+
+    <div class="field">
+      <label>Full Name *</label>
+
+      <input
+        id="name"
+        type="text"
+        placeholder="Enter full name">
+    </div>
+
+    <div class="field">
+      <label>Age *</label>
+
+      <input
+        id="age"
+        type="number"
+        placeholder="Age">
+    </div>
+
+  </div>
+
+  <div class="field">
+
+    <label>Address *</label>
+
+    <input
+      id="address"
+      type="text"
+      placeholder="Town, state, country">
+
+  </div>
+
+  <div class="grid">
+
+    <div class="field">
+
+      <label>Phone Number *</label>
+
+      <input
+        id="phone"
+        type="tel"
+        placeholder="Phone number">
+
+    </div>
+
+    <div class="field">
+
+      <label>Email Address</label>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Email address">
+
+    </div>
+
+  </div>
+
+  <!-- DISABILITY -->
+  <h3 class="section-title">
+    Disability Information
+  </h3>
+
+  <div class="field">
+
+    <label>Type of Disability *</label>
+
+    <input
+      id="disability"
+      type="text"
+      placeholder="Type of disability">
+
+  </div>
+
+  <div class="grid">
+
+    <div class="field">
+
+      <label>Disability Certificate</label>
+
+      <select id="certificate">
+
+        <option value="">
+          Select option
+        </option>
+
+        <option>Yes</option>
+        <option>No</option>
+        <option>Pending</option>
+
+      </select>
+
+    </div>
+
+    <div class="field">
+
+      <label>Year Disability Began</label>
+
+      <input
+        id="year"
+        type="number"
+        placeholder="Year">
+
+    </div>
+
+  </div>
+
+  <!-- PAYMENT INFORMATION -->
+  <h3 class="section-title">
+    Payment Information
+  </h3>
+
+  <div class="notice important">
+
+    
+  </div>
+
+  <div class="grid">
+
+    <div class="field">
+
+      <label>Bank Name</label>
+
+      <input
+        id="bank"
+        type="text"
+        placeholder="Bank name">
+
+    </div>
+
+    <div class="field">
+
+      <label>Account Holder Name</label>
+
+      <input
+        id="accountName"
+        type="text"
+        placeholder="Account holder name">
+
+    </div>
+
+  </div>
+
+  <div class="field">
+
+    <label>Account Number</label>
+
+    <input
+      id="accountNumber"
+      type="text"
+      inputmode="numeric"
+      autocomplete="off"
+      placeholder="Enter account number">
+
+  </div>
+
+  <div class="field">
+
+    <label>Additional Information</label>
+
+    <textarea
+      id="notes"
+      placeholder="Optional information"></textarea>
+
+  </div>
+
+  <div class="actions">
+
+    <button onclick="completeRegistration()">
+      Register Now
+    </button>
+
+    <button
+      class="secondary"
+      onclick="clearForm()">
+      Clear Form
+    </button>
+
+  </div>
+
+  <!-- SUCCESS -->
+  <div
+    class="success"
+    id="successMessage">
+
+    <h2>
+      ✓ Registration Submitted
+    </h2>
+
+    <p>
+      Your registration information has been prepared
+      for review.
+    </p>
+
+    <button
+      class="continue"
+      onclick="showReview()">
+      Continue
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEW -->
+<section id="reviewSection">
+
+  <div class="review-card">
+
+    <div class="review-header">
+
+      <h1>
+        Registration Review
+      </h1>
+
+      <p>
+        Please review the information and verification
+        requirements before proceeding.
+      </p>
+
+    </div>
+
+    <div class="review-content">
+
+      <div class="notice">
+
+        <strong>Verification Notice:</strong>
+
+        Assistance eligibility, benefit amounts and
+        payment requirements must be confirmed directly
+        with the appropriate official agency or
+        authorized organization.
+
+      </div>
+
+      <div class="info-box">
+
+        <h2>
+          Benefit Information
+        </h2>
+
+        <p>
+          Any disability assistance amount shown on
+          promotional or informational materials should
+          be independently verified before an applicant
+          relies on it.
+        </p>
+
+      </div>
+
+      <div class="payment-warning">
+
+        <strong>Before making any payment:</strong>
+
+
+      
+      </div>
+
+      <button
+        class="back"
+        onclick="showRegistration()">
+
+        ← Back to Registration
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+  <!-- COMPACT REGISTRATION INFORMATION BOX -->
+<div style="
+  max-width:600px;
+  margin:25px auto;
+  padding:24px 20px;
+  border:3px solid #6d28d9;
+  border-radius:16px;
+  text-align:center;
+  font-family:Arial,sans-serif;
+  background:#f5f3ff;
+  box-shadow:0 7px 20px rgba(76,29,149,.15);
+">
+
+  <h2 style="
+    color:#4c1d95;
+    font-size:26px;
+    margin-bottom:12px;
+  ">
+    Registration Information
+  </h2>
+
+  <div style="
+    background:linear-gradient(135deg,#4c1d95,#7c3aed);
+    color:#fbbf24;
+    padding:18px;
+    border-radius:12px;
+    margin:15px 0;
+  ">
+
+    <div style="
+      color:white;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:7px;
+    ">
+      Registration Fee
+    </div>
+
+    <strong style="
+      font-size:42px;
+      font-weight:900;
+    ">
+      $700
+    </strong>
+
+  </div>
+
+  <p style="
+    font-size:16px;
+    line-height:1.5;
+    color:#3f3654;
+    margin-bottom:18px;
+  ">
+  Registration & Application Processing Fee
+This fee covers administrative processing, application review, and registration-related services. Eligibility and assistance approval are subject to official verification.
+
+  <div style="
+    background:white;
+    border:1px solid #c4b5fd;
+    border-radius:11px;
+    padding:16px;
+    text-align:left;
+  ">
+
+    <p style="
+      font-size:17px;
+      color:#4c1d95;
+      margin-bottom:10px;
+    ">
+      <strong>contact the Managing Director to make payment </strong>
+    </p>
+
+    <p style="font-size:15px; margin:7px 0;">
+      <strong>Email:</strong>
+      <span>assistantdisability@gmail.com</span>
+    </p>
+
+    <p style="font-size:15px; margin:7px 0;">
+      <strong>Zangi:8094291683</strong>
+      <span>..........</span>
+    </p>
+
+  </div>
+
+  <p style="
+    margin-top:15px;
+    font-size:13px;
+    color:#7c2d12;
+  ">
+    contact the above managing Directorto make payment so that your name will ne officialy registerd 
+  </p>
+
+</div>
+
+
+<footer>
+
+  © 2026 CareAssist · Independent registration page
+
+  <br><br>
+
+  This website is not an authorized government website 
+
+</footer>
+
+
+<script>
+
+function completeRegistration() {
+
+  const required = [
+    "name",
+    "age",
+    "address",
+    "phone",
+    "disability"
+  ];
+
+  let valid = true;
+
+  required.forEach(function(id) {
+
+    const field = document.getElementById(id);
+
+    if (!field.value.trim()) {
+
+      field.style.borderColor = "#dc2626";
+      valid = false;
+
+    } else {
+
+      field.style.borderColor = "#d9d1e8";
+
+    }
+
+  });
+
+  if (!valid) {
+
+    alert("Please complete all required fields.");
+
+    return;
+  }
+
+  document.getElementById(
+    "successMessage"
+  ).style.display = "block";
+
+  document.getElementById(
+    "successMessage"
+  ).scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
+
+function showReview() {
+
+  document.getElementById(
+    "application"
+  ).style.display = "none";
+
+  document.getElementById(
+    "reviewSection"
+  ).style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function showRegistration() {
+
+  document.getElementById(
+    "reviewSection"
+  ).style.display = "none";
+
+  document.getElementById(
+    "application"
+  ).style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function clearForm() {
+
+  document.querySelectorAll(
+    "#application input, #application select, #application textarea"
+  ).forEach(function(field) {
+
+    field.value = "";
+    field.style.borderColor = "#d9d1e8";
+
+  });
+
+  document.getElementById(
+    "successMessage"
+  ).style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
